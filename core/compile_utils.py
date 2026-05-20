@@ -53,6 +53,21 @@ def detect_and_compile_blocks(
                      "please update ComfyUI")
         return model
 
+    # Inductor backend requires Triton to compile models on GPU.
+    # We check for its presence beforehand to prevent runtime ModuleNotFoundError crashes.
+    if backend == "inductor" and torch.cuda.is_available():
+        try:
+            import triton
+        except ImportError:
+            logger.error(
+                "[Compile] 'triton' module is missing! PyTorch's 'inductor' JIT backend "
+                "requires the Triton compiler for CUDA acceleration. "
+                "To prevent ComfyUI from crashing during KSampler execution, "
+                "torch.compile has been SAFELY DISABLED. "
+                "Tip: Install 'triton-windows' or look for 'ComfyUI-Sage-EasyInstall' in ComfyUI Manager."
+            )
+            return model
+
     m = model.clone()
     diffusion_model = m.get_model_object("diffusion_model")
 
