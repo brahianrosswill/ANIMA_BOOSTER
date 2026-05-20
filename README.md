@@ -1,4 +1,4 @@
-# ANIMA_BOOSTER (BSS) | Version v1.2.0
+# ANIMA_BOOSTER (BSS)
 
 🇷🇺 [Читать на русском языке](README_RU.md)
 
@@ -10,6 +10,17 @@
 > This project is protected by copyright. Any unauthorized copying, modification without attribution, or representing this code as your own product is strictly prohibited.
 
 This package allows you to achieve a **total acceleration of 3.5× to 5.0×** compared to the default Anima workflow in ComfyUI, with no noticeable loss in visual quality.
+
+---
+
+### 💎 BSS Premium UI (Luxury Matte & Warm Gold)
+
+The optimization suite features a custom-tailored, exquisite UI design that gives your nodes a premium, luxury look and feel:
+- **Ultra-Matte Black Casing:** A deep matte `#0f0f0eff` color scheme that stands out beautifully on any ComfyUI grid, seamlessly merging node inputs and outputs into a solid, monolithic block.
+- **Warm Gold Accents:** Exquisite golden details (`#d4af37` / `#e5c158`) on active sliders, toggles, dropdown arrows, and input fields.
+- **Reactivity & Flow:** Complete integration with node settings (e.g., custom preset resolutions dynamically adjust width/height fields in real-time).
+- **Zero Distractions:** Fully suppressed help and regular tooltips, preventing annoying popup overlaps while tweaking parameters.
+- **Gilded Branding:** An elegant italic "BSS OPTIMIZED" branding engraving at the bottom-right corner of the nodes.
 
 ---
 
