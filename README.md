@@ -101,25 +101,18 @@ All resource-heavy optimization libraries (**SageAttention** and JIT **Triton**)
 > **Triton is required for both SageAttention and JIT Compilation (`torch.compile`)**!
 > If you plan to enable `torch_compile` (which yields up to a 40% speed boost) or use SageAttention on Windows, you **must** install `triton-windows`. Without Triton, `torch.compile` will be safely disabled with a warning in the console to avoid crashes.
 
-### 📦 Installing Triton and SageAttention (for Windows & Portable Builds)
+### 📦 Installing Triton and SageAttention on Windows (for Portable Builds)
 
 Portable ComfyUI builds (which use an isolated `python_embeded` environment on Python 3.12 or 3.13) do not have C++ compilation tools (MSVC / Build Tools) installed. As a result, the standard `pip install sageattention` command will fail with a compilation error.
 
-You can easily bypass this issue using one of the following methods:
+To install it successfully, use precompiled binary packages (`.whl` wheels):
 
-#### Method 1: Automatic Installation via ComfyUI Manager (Recommended)
-1. In ComfyUI Manager, search for and install the **ComfyUI-Sage-EasyInstall** node.
-2. Restart ComfyUI.
-3. This node will automatically analyze your system, install the correct version of `triton-windows`, and download the precompiled binary package (`.whl` wheel) of SageAttention tailored specifically for your Python and CUDA versions.
-
-#### Method 2: Manual Installation of Precompiled Wheel Files
-If you prefer to install everything manually in a portable setup:
 1. Open a command prompt (CMD or PowerShell) in your main ComfyUI folder.
 2. Install Triton for Windows:
    ```bash
    .\python_embeded\python.exe -m pip install triton-windows
    ```
-3. Download the precompiled `.whl` file for SageAttention that matches your Python version (e.g., `cp313` for Python 3.13) and CUDA version (e.g., `cu124` / `cu128`):
+3. Download the precompiled `.whl` file for SageAttention that matches your Python version (e.g., `cp312` or `cp313`) and CUDA version (e.g., `cu124` / `cu128`):
    - Precompiled builds can be found in the releases of this repository: **[sdbds/SageAttention-for-windows](https://github.com/sdbds/SageAttention-for-windows)**.
    - Precompiled wheels are also published in the project: **[wildminder/AI-windows-whl](https://github.com/wildminder/AI-windows-whl)**.
 4. Install the downloaded file into the portable environment:

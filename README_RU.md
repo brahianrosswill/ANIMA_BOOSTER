@@ -99,27 +99,20 @@
 > **Triton необходим как для работы SageAttention, так и для JIT-компиляции (`torch.compile`)**!
 > Если вы хотите включить `torch_compile` (дающую до +40% к скорости генерации) или использовать SageAttention на Windows, вам **необходимо** установить `triton-windows`. Без него JIT-компиляция будет автоматически и безопасно отключена с выводом предупреждения в консоль, чтобы избежать падений.
 
-### 📦 Установка Triton и SageAttention (для Windows & Portable Build)
+### 📦 Установка Triton и SageAttention на Windows (для Portable Build)
 
-Портативные сборки ComfyUI (использующие изолированный `python_embeded` на Python 3.13 или 3.12) не имеют установленных инструментов компиляции C++ (MSVC / Build Tools). Из-за этого стандартная команда `pip install sageattention` выдает ошибку компиляции.
+Портативные сборки ComfyUI (использующие изолированное окружение `python_embeded` на Python 3.12 или 3.13) не имеют установленных инструментов компиляции C++ (MSVC / Build Tools). Из-за этого стандартная команда `pip install sageattention` завершается ошибкой.
 
-Вы можете легко обойти эту проблему одним из следующих способов:
+Для успешной установки используйте предкомпилированные бинарные пакеты (`.whl` wheel):
 
-#### Способ 1: Автоматическая установка через ComfyUI Manager (Рекомендуется)
-1. В ComfyUI Manager найдите и установите ноду **ComfyUI-Sage-EasyInstall**.
-2. Перезагрузите ComfyUI.
-3. Данная нода автоматически проанализирует вашу систему, установит нужную версию `triton-windows` и загрузит скомпилированный бинарный пакет (`.whl` wheel) SageAttention, разработанный специально под вашу версию Python и CUDA.
-
-#### Способ 2: Ручная установка предкомпилированных Wheel-файлов
-Если вы предпочитаете установить всё вручную в портативную сборку:
-1. Откройте командную строку (CMD или PowerShell) в вашей главной папке ComfyUI.
+1. Откройте командную строку (CMD или PowerShell) в вашей корневой папке ComfyUI.
 2. Установите Triton для Windows:
    ```bash
    .\python_embeded\python.exe -m pip install triton-windows
    ```
-3. Скачайте предкомпилированный файл `.whl` для SageAttention, соответствующий вашей версии Python (например, `cp313` для Python 3.13) и CUDA (например, `cu124` / `cu128`):
-   - Готовые сборки можно найти в релизах репозитория: **[sdbds/SageAttention-for-windows](https://github.com/sdbds/SageAttention-for-windows)**.
-   - Также предкомпилированные колеса публикуются в проекте: **[wildminder/AI-windows-whl](https://github.com/wildminder/AI-windows-whl)**.
+3. Скачайте предкомпилированный файл `.whl` для SageAttention, соответствующий вашей версии Python (например, `cp312` или `cp313`) и CUDA (например, `cu124` / `cu128`):
+   - Предкомпилированные сборки можно найти в релизах репозитория: **[sdbds/SageAttention-for-windows](https://github.com/sdbds/SageAttention-for-windows)**.
+   - Также официальные колеса публикуются в проекте: **[wildminder/AI-windows-whl](https://github.com/wildminder/AI-windows-whl)**.
 4. Установите скачанный файл в портативное окружение:
    ```bash
    .\python_embeded\python.exe -m pip install <путь_к_скачанному_файлу.whl>
