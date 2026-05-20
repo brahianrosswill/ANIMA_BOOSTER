@@ -13,6 +13,29 @@ This package allows you to achieve a **total acceleration of 3.5× to 5.0×** co
 
 ---
 
+## 📥 Installation
+
+There are two easy ways to install **ANIMA_BOOSTER**:
+
+### Method 1: Via ComfyUI Manager (Recommended)
+1. Open ComfyUI and click on the **Manager** button.
+2. Click **Install via Git URL**.
+3. Paste this repository URL: `https://github.com/BlackSnowSkill/ANIMA_BOOSTER`
+4. Click **Install**, wait for the process to complete, and restart ComfyUI.
+
+### Method 2: Manual Installation (Git Clone)
+1. Open your command prompt (CMD or Terminal) and navigate to your ComfyUI custom nodes directory:
+   ```bash
+   cd ComfyUI/custom_nodes
+   ```
+2. Clone this repository:
+   ```bash
+   git clone https://github.com/BlackSnowSkill/ANIMA_BOOSTER.git
+   ```
+3. Restart ComfyUI.
+
+---
+
 ## 🆕 What's New in Version v1.2 (Changelog)
 
 ### 💎 Global Refactoring and Stabilization:

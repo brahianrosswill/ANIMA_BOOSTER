@@ -11,6 +11,29 @@
 
 ---
 
+## 📥 Установка
+
+Существует два простых способа установить **ANIMA_BOOSTER**:
+
+### Способ 1: Через ComfyUI Manager (Рекомендуется)
+1. Откройте ComfyUI и нажмите кнопку **Manager**.
+2. Нажмите **Install via Git URL**.
+3. Вставьте ссылку на этот репозиторий: `https://github.com/BlackSnowSkill/ANIMA_BOOSTER`
+4. Нажмите **Install**, дождитесь завершения установки и перезагрузите ComfyUI.
+
+### Способ 2: Ручная установка (Git Clone)
+1. Откройте командную строку (CMD или терминал) и перейдите в папку кастомных нод вашего ComfyUI:
+   ```bash
+   cd ComfyUI/custom_nodes
+   ```
+2. Склонируйте этот репозиторий:
+   ```bash
+   git clone https://github.com/BlackSnowSkill/ANIMA_BOOSTER.git
+   ```
+3. Перезагрузите ComfyUI.
+
+---
+
 ## 🆕 Что нового в версии v1.2 (Changelog)
 
 ### 💎 Глобальный рефакторинг и стабилизация:
