@@ -107,9 +107,13 @@ To achieve the best results, connect the nodes in the following sequence:
 
 ## 🛠️ Installation & Dependencies on Windows
 
-All resource-heavy optimization libraries (**SageAttention**) are **entirely optional**. The package is designed with *Graceful Degradation* in mind: if the libraries are not installed, the nodes will automatically disable patches or fallback to standard PyTorch mechanisms, guaranteeing crash-free execution in ComfyUI.
+All resource-heavy optimization libraries (**SageAttention** and JIT **Triton**) are **entirely optional**. The package is designed with *Graceful Degradation* in mind: if the libraries are not installed, the nodes will automatically disable patches or compile features, transitioning seamlessly to standard PyTorch mechanisms and guaranteeing crash-free execution in ComfyUI.
 
-### 📦 Resolving SageAttention Compilation Issues (for Windows & Portable Builds)
+> [!IMPORTANT]
+> **Triton is required for both SageAttention and JIT Compilation (`torch.compile`)**!
+> If you plan to enable `torch_compile` (which yields up to a 40% speed boost) or use SageAttention on Windows, you **must** install `triton-windows`. Without Triton, `torch.compile` will be safely disabled with a warning in the console to avoid crashes.
+
+### 📦 Installing Triton and SageAttention (for Windows & Portable Builds)
 
 Portable ComfyUI builds (which use an isolated `python_embeded` environment on Python 3.12 or 3.13) do not have C++ compilation tools (MSVC / Build Tools) installed. As a result, the standard `pip install sageattention` command will fail with a compilation error.
 
