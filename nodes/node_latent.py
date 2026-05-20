@@ -82,7 +82,6 @@ class AnimaLatentImage:
                     PRESET_RESOLUTIONS,
                     {
                         "default": "1024×1024 (1:1 large)",
-                        "tooltip": "Preset resolutions — all guaranteed Anima-compatible.",
                     },
                 ),
                 "width": (
@@ -93,11 +92,6 @@ class AnimaLatentImage:
                         "max": 8192,
                         "step": 16,
                         "display": "number",
-                        "tooltip": (
-                            "Image width. MUST be divisible by 16 for Anima. "
-                            "Will be auto-rounded up if not. "
-                            "Ignored when preset is not 'Custom'."
-                        ),
                     },
                 ),
                 "height": (
@@ -108,11 +102,6 @@ class AnimaLatentImage:
                         "max": 8192,
                         "step": 16,
                         "display": "number",
-                        "tooltip": (
-                            "Image height. MUST be divisible by 16 for Anima. "
-                            "Will be auto-rounded up if not. "
-                            "Ignored when preset is not 'Custom'."
-                        ),
                     },
                 ),
                 "batch_size": (
@@ -132,9 +121,8 @@ class AnimaLatentImage:
     FUNCTION = "generate"
     CATEGORY = "BSS/AnimaBooster"
     DESCRIPTION = (
-        "Empty latent for Anima DiT. "
-        "Auto-enforces divisible-by-16 constraint. "
-        "Presets cover common aspect ratios."
+        "Создает пустой латент с автовыравниванием размеров до кратных 16, как требует Anima DiT. "
+        "Позволяет выбирать готовые пресеты соотношений сторон или вводить размер вручную."
     )
 
     def generate(
