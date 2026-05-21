@@ -11,6 +11,10 @@
 
 This package allows you to achieve a **total acceleration of 3.5× to 5.0×** compared to the default Anima workflow in ComfyUI, with no noticeable loss in visual quality.
 
+> [!TIP]
+> **Ultimate Quality & Detail Recovery:**  
+> While extreme optimization can sometimes lead to a slight loss in micro-details, we have a perfect solution for that. We highly recommend pairing **ANIMA_BOOSTER** with our companion node **[FLSampler (BSS)](https://github.com/BlackSnowSkill/ComfyUI-BSS_FLSampler)**. FLS perfectly restores any lost details without sacrificing your speed gains, producing even sharper and more coherent details than the original unoptimized model!
+
 ---
 
 ## ⚡ Key Features
@@ -135,3 +139,19 @@ To install it successfully, use precompiled binary packages (`.whl` wheels):
 - **SageAttention Integration Point**: The patch is applied via the standard `transformer_options["optimized_attention_override"]` parameter dictionary.
 - **Torch Compile Integration Point**: Invokes the built-in `set_torch_compile_wrapper` function from `comfy_api.torch_helpers` at the level of individual transformer blocks (ensuring LoRA compatibility and reducing compilation overhead).
 - **Isolation**: All graph and weight modifications are performed strictly on a cloned copy of the model (`model.clone()`). This prevents conflicts and leaves the original model in the ComfyUI cache untouched.
+
+---
+
+## ☕ Support & Development
+
+If you love my work and want to support the development of future optimizations, nodes, and custom models, please consider supporting me:
+- **Boosty**: [Support & Exclusive Models](https://boosty.to/blacksnowskill)
+
+---
+
+## 📄 License & Usage
+
+© 2026 blacksnowskill (BSS). All rights reserved.
+
+This software is an experimental release. Feedback is highly welcome.
+**Notice:** This project is protected by copyright. Any unauthorized copying, distribution, merging with other projects, or hosting on other repositories/websites without the explicit written permission of the author is strictly prohibited.
