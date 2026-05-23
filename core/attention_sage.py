@@ -36,6 +36,21 @@ def apply_sage_attention_to_model(model, mode: str) -> tuple[any, bool]:
     if not check_sageattention_available():
         return model, False
 
+    # Check CUDA device capability to prevent crashes on pre-Ampere GPUs (e.g., Turing RTX 20xx, Pascal, etc.)
+    if torch.cuda.is_available():
+        try:
+            major, minor = torch.cuda.get_device_capability()
+            if major < 8:
+                logger.warning(
+                    f"[SageAttention] SageAttention is auto-disabled for your GPU (compute capability {major}.{minor}, "
+                    f"Turing/RTX 20xx or older). SageAttention officially requires Ampere (RTX 30xx, compute capability 8.0+) "
+                    f"or newer GPUs to run stably. Falling back to native PyTorch Scaled Dot Product Attention (SDPA) "
+                    f"to prevent Triton compilation crashes and performance degradation."
+                )
+                return model, False
+        except Exception as device_err:
+            logger.error(f"[SageAttention] Failed to query CUDA device capability: {device_err}")
+
     try:
         # Register the BSS unified router
         m = register_bss_attention_router(model)
@@ -49,3 +64,4 @@ def apply_sage_attention_to_model(model, mode: str) -> tuple[any, bool]:
     except Exception as e:
         logger.error(f"[SageAttention] Failed to apply: {e}", exc_info=True)
         return model, False
+
