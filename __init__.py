@@ -28,7 +28,7 @@ except Exception as e:
     AnimaLatentImage = None
     AnimaTeaCache = None
 
-__version__ = "1.3.0"
+__version__ = "1.3.1"
 
 NODE_CLASS_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS = {}
